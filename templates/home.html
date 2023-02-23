@@ -1,0 +1,55 @@
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+
+    <style>
+        .bg {
+            /* The image used */
+            background-image: url("static/bg.jpg");
+
+            /* Full height */
+            height: 100%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body class="bg">
+    <nav class="navbar navbar-light fixed-top"
+        style="backdrop-filter: blur(8px); background-color: #000000aa; box-shadow: 0 0 10px #000">
+        <a class="navbar-brand ms-4 text-white" href="..">FENIKS</a>
+        <div class="align-items-end">
+            <a href="/kamere"><img src="/static/kamera.png" style="height: 64px" class="me-3"></a>
+            <a href="/senzori"><img src="/static/termometar.png" style="height: 64px" class="me-3"></a>
+        </div>
+    </nav>
+
+    <div class=" d-flex justify-content-center align-items-center" style="height: 100vh">
+        <div>
+            <div class="text-white d-flex justify-content-center  display-1 fw-bold">FENIKS</div>
+            <h1 class="text-white d-flex justify-content-center fw-light">Sistem za detekciju požara</h1>
+            <div class="row">
+                <div class="w-50">
+                    <a href="/kamere"><button type="button" class="btn btn-outline-light btn-lg border-2 w-100">KAMERE</button></a>
+                </div>
+                
+                <div class="w-50">
+                    <a href="/kamere"><button type="button" class="btn btn-outline-light btn-lg border-2  w-100">SENZORI</button></a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
