@@ -13,16 +13,16 @@
             fetch("/temp").then(r => r.json().then(t => {
                 document.getElementById('temp1').innerHTML = t[0] + "°C"
                 if (t[0] > 40) {
-                    document.getElementById('prikaz1').className = document.getElementById('prikaz1').className.replace("zelena", "bg-danger")
+                    document.getElementById('prikaz1').className = document.getElementById('prikaz1').className.replace("zelena", "crvena")
                 } else {
-                    document.getElementById('prikaz1').className = document.getElementById('prikaz1').className.replace("bg-danger", "zelena")
+                    document.getElementById('prikaz1').className = document.getElementById('prikaz1').className.replace("crvena", "zelena")
                 }
 
                 document.getElementById('temp2').innerHTML = t[1] + "°C"
                 if (t[1] > 40) {
-                    document.getElementById('prikaz2').className = document.getElementById('prikaz2').className.replace("zelena", "bg-danger")
+                    document.getElementById('prikaz2').className = document.getElementById('prikaz2').className.replace("zelena", "crvena")
                 } else {
-                    document.getElementById('prikaz2').className = document.getElementById('prikaz2').className.replace("bg-danger", "zelena")
+                    document.getElementById('prikaz2').className = document.getElementById('prikaz2').className.replace("crvena", "zelena")
                 }
             }))
         }, 500);
@@ -48,6 +48,11 @@
 
         .siva {
             background-color: #77777755;
+            backdrop-filter: blur(8px);
+            box-shadow: -5px 5px 15px black;
+        }
+        .crvena {
+            background-color: #FF000055;
             backdrop-filter: blur(8px);
             box-shadow: -5px 5px 15px black;
         }
