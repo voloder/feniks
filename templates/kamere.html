@@ -13,11 +13,30 @@
            
         }, 500);
     </script>
+
+<style>
+    .bg {
+        /* The image used */
+        background-image: url("static/snz.jpg");
+        position:relative;
+        /* Full height */
+        height: 100%;
+        /* Center and scale the image nicely */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .kamera {
+        box-shadow: 0px 0px 10px black;
+    }
+</style>
 </head>
 
-<body>
+<body class="bg">
     <nav class="navbar navbar-light bg-dark">
-        <a class="navbar-brand ms-4 text-white" href="..">FENIKS</a>
+        <a  href=".."><img src="/static/FENIKS.png" style="height: 48px" class="ms-2"></a>
         <div class="align-items-end">
             <a  href="/kamere"><img src="/static/kamera.png" style="height: 48px" class="me-3"></a>
             <a  href="/senzori"><img src="/static/termometar.png" style="height: 48px" class="me-3"></a>
@@ -27,20 +46,20 @@
 
         <div class="col-md p-2">
             <h1 class="position-absolute text-white bg-dark bg-opacity-75 p-1 rounded">KAMERA 1</h1>
-            <img class="img-fluid rounded" style="width:100%;" id="slika">
+            <img class="img-fluid rounded  kamera" style="width:100%;" id="slika">
         </div>
         <div class="col-md p-2">
             <h1 class="position-absolute text-white bg-dark bg-opacity-75 p-1 rounded">KAMERA 2</h1>
-            <img src="/static/nemaslike.jpg" class="img-fluid rounded" style="width:100%;">
+            <img src="/static/nemaslike.jpg" class="img-fluid rounded  kamera" style="width:100%;">
         </div>
         <div class="w-100"></div>
         <div class="col-md p-2">
             <h1 class="position-absolute text-white bg-dark bg-opacity-75 p-1 rounded">KAMERA 3</h1>
-            <img src="/static/nemaslike.jpg" class="img-fluid rounded" style="width:100%;">
+            <img src="/static/nemaslike.jpg " class="img-fluid rounded  kamera" style="width:100%;">
         </div>
         <div class="col-md p-2">
             <h1 class="position-absolute text-white bg-dark bg-opacity-75 p-1 rounded">KAMERA 4</h1>
-            <img src="/static/nemaslike.jpg" class="img-fluid rounded" style="width:100%;">
+            <img src="/static/nemaslike.jpg" class="img-fluid rounded  kamera" style="width:100%;">
         </div>
     </div>
 

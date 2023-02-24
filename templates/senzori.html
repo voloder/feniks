@@ -13,82 +13,115 @@
             fetch("/temp").then(r => r.json().then(t => {
                 document.getElementById('temp1').innerHTML = t[0] + "°C"
                 if (t[0] > 40) {
-                    document.getElementById('prikaz1').className = document.getElementById('prikaz1').className.replace("bg-success", "bg-danger")
+                    document.getElementById('prikaz1').className = document.getElementById('prikaz1').className.replace("zelena", "bg-danger")
                 } else {
-                    document.getElementById('prikaz1').className = document.getElementById('prikaz1').className.replace("bg-danger", "bg-success")
+                    document.getElementById('prikaz1').className = document.getElementById('prikaz1').className.replace("bg-danger", "zelena")
                 }
 
                 document.getElementById('temp2').innerHTML = t[1] + "°C"
                 if (t[1] > 40) {
-                    document.getElementById('prikaz2').className = document.getElementById('prikaz2').className.replace("bg-success", "bg-danger")
+                    document.getElementById('prikaz2').className = document.getElementById('prikaz2').className.replace("zelena", "bg-danger")
                 } else {
-                    document.getElementById('prikaz2').className = document.getElementById('prikaz2').className.replace("bg-danger", "bg-success")
+                    document.getElementById('prikaz2').className = document.getElementById('prikaz2').className.replace("bg-danger", "zelena")
                 }
             }))
         }, 500);
     </script>
+    <style>
+        .bg {
+            /* The image used */
+            background-image: url("static/snz.jpg");
+            position:relative;
+            /* Full height */
+            height: 100%;
+            /* Center and scale the image nicely */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .zelena {
+            background-color: #00FF0055;
+            backdrop-filter: blur(8px);
+            box-shadow: -5px 5px 15px black;
+        }
 
+        .siva {
+            background-color: #77777755;
+            backdrop-filter: blur(8px);
+            box-shadow: -5px 5px 15px black;
+        }
+    </style>
 </head>
 
-<body>
+<body class="bg">
     <nav class="navbar navbar-light bg-dark">
-        <a class="navbar-brand ms-4 text-white" href="..">FENIKS</a>
+        <a href=".."><img src="/static/FENIKS.png" style="height: 48px" class="ms-2"></a>
         <div class="align-items-end">
             <a href="/kamere"><img src="/static/kamera.png" style="height: 48px" class="me-3"></a>
             <a href="/senzori"><img src="/static/termometar.png" style="height: 48px" class="me-3"></a>
         </div>
     </nav>
-    <h2>KUĆA 1:</h2>
-    <div class="row gx-0">
-        <div id="prikaz1"
-            class="bg-success rounded m-2 d-flex justify-content-center align-items-center text-white d-flex flex-column"
-            style="height:150px;width:150px">
-            <h3>SENZOR 1:</h3>
-            <h1 id="temp1">--°C</h1>
+    <div class="p-1 text-white">
+        <h2>KUĆA 1:</h2>
+        <div class="row gx-0">
+            <div id="prikaz1"
+                class="zelena rounded m-2 d-flex justify-content-center align-items-center text-white d-flex flex-column"
+                style="height:150px;width:150px">
+                <h3>SENZOR 1:</h3>
+                <h1 id="temp1">--°C</h1>
+            </div>
+            <div id="prikaz2"
+                class="zelena rounded m-2 d-flex justify-content-center align-items-center text-white d-flex flex-column"
+                style="height:150px;width:150px">
+                <h3>SENZOR 2:</h3>
+                <h1 id="temp2">--°C</h1>
+            </div>
         </div>
-        <div id="prikaz2"
-            class="bg-success rounded m-2 d-flex justify-content-center align-items-center text-white d-flex flex-column"
-            style="height:150px;width:150px">
-            <h3>SENZOR 2:</h3>
-            <h1 id="temp2">--°C</h1>
+
+        <h2>KUĆA 2:</h2>
+        <div class="row gx-0">
+            <div class="siva rounded m-2 d-flex justify-content-center align-items-center text-white flex-column"
+                style="height:150px;width:150px">
+                <h3>SENZOR 1:</h3>
+                <h1>--°C</h1>
+            </div>
+            <div class="siva rounded m-2 d-flex justify-content-center align-items-center text-white flex-column"
+                style="height:150px;width:150px">
+                <h3>SENZOR 2:</h3>
+                <h1>--°C</h1>
+            </div>
+            <div class="siva rounded m-2 d-flex justify-content-center align-items-center text-white flex-column"
+                style="height:150px;width:150px">
+                <h3>SENZOR 3:</h3>
+                <h1>--°C</h1>
+            </div>
+            <div class="siva rounded m-2 d-flex justify-content-center align-items-center text-white flex-column"
+                style="height:150px;width:150px">
+                <h3>SENZOR 4:</h3>
+                <h1>--°C</h1>
+            </div>
+        </div>
+
+        <h2>KUĆA 3:</h2>
+        <div class="row gx-0">
+            <div class="siva rounded m-2 d-flex justify-content-center align-items-center text-white flex-column"
+                style="height:150px;width:150px">
+                <h3>SENZOR 1:</h3>
+                <h1>--°C</h1>
+            </div>
+            <div class="siva rounded m-2 d-flex justify-content-center align-items-center text-white flex-column"
+                style="height:150px;width:150px">
+                <h3>SENZOR 2:</h3>
+                <h1>--°C</h1>
+            </div>
+            <div class="siva rounded m-2 d-flex justify-content-center align-items-center text-white flex-column"
+                style="height:150px;width:150px">
+                <h3>SENZOR 3:</h3>
+                <h1>--°C</h1>
+            </div>
         </div>
     </div>
-
-    <h2>KUĆA 2:</h2>
-    <div class="row gx-0">
-        <div class="bg-secondary rounded m-2 d-flex justify-content-center align-items-center text-white d-flex flex-column"
-            style="height:150px;width:150px">
-            <h3>SENZOR 1:</h3>
-            <h1>--°C</h1>
-        </div>
-        <div class="bg-secondary rounded m-2 d-flex justify-content-center align-items-center text-white d-flex flex-column"
-            style="height:150px;width:150px">
-            <h3>SENZOR 2:</h3>
-            <h1>--°C</h1>
-        </div>
-    </div>
-
-    <h2>KUĆA 3:</h2>
-    <div class="row gx-0">
-        <div class="bg-secondary rounded m-2 d-flex justify-content-center align-items-center text-white d-flex flex-column"
-            style="height:150px;width:150px">
-            <h3>SENZOR 1:</h3>
-            <h1>--°C</h1>
-        </div>
-        <div class="bg-secondary rounded m-2 d-flex justify-content-center align-items-center text-white d-flex flex-column"
-            style="height:150px;width:150px">
-            <h3>SENZOR 2:</h3>
-            <h1>--°C</h1>
-        </div>
-    </div>
-    </div>
-
-    </div>
-    </div>
-
-
-    </div>
-
 
 </body>
 
