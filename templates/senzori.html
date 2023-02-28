@@ -9,7 +9,6 @@
 
     <script>
         setInterval(function () {
-            document.getElementById('slika').src = '/image?rand=' + Math.random();
             fetch("/temp").then(r => r.json().then(t => {
                 document.getElementById('temp1').innerHTML = t[0] + "°C"
                 if (t[0] > 40) {
