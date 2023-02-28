@@ -1,6 +1,9 @@
 # PROJEKT FENIKS
 ### Pi Klub STEM challenge 2023
 
+![image](https://user-images.githubusercontent.com/110066198/221813074-79bc19e3-99c4-43c3-8696-09a5f0a7d43f.png)
+
+
 Ovaj program je demonstracija za detekciju šumskih požara uz pomoć PyTorch modela i Flask web panela. 
 
 Da biste koristili ovaj program, potrebno je da imate Python 3.8 instalaciju.
