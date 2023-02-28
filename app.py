@@ -7,6 +7,8 @@ import serial.tools.list_ports
 from pyfirmata.util import Iterator
 from flask import Flask, render_template, make_response
 
+# U SLUČAJU DA SE POGREŠNA KAMERA PRIKAZUJE, ILI NEMA SLIKE, PROMIJENITE BROJ KAMERE!
+
 KAMERA = 1  # Broj kamere
 
 # THREAD ZA DETEKCIJU
