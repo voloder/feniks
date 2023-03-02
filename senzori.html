@@ -16,14 +16,14 @@
                 t1 = getRndInteger(20, 30)
                 t2 = getRndInteger(60, 70)
                 document.getElementById('temp1').innerHTML = t1 + "°C"
-                if (t[0] > 40) {
+                if (t1 > 40) {
                     document.getElementById('prikaz1').className = document.getElementById('prikaz1').className.replace("zelena", "crvena")
                 } else {
                     document.getElementById('prikaz1').className = document.getElementById('prikaz1').className.replace("crvena", "zelena")
                 }
 
                 document.getElementById('temp2').innerHTML = t2 + "°C"
-                if (t[1] > 40) {
+                if (t2 > 40) {
                     document.getElementById('prikaz2').className = document.getElementById('prikaz2').className.replace("zelena", "crvena")
                 } else {
                     document.getElementById('prikaz2').className = document.getElementById('prikaz2').className.replace("crvena", "zelena")
