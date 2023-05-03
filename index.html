@@ -9,9 +9,12 @@
 
     <style>
         .bg {
+            /* The image used */
             background-image: url("static/bg.jpg");
+
+            /* Full height */
             height: 100%;
-            background-attachment: fixed;
+            /* Center and scale the image nicely */
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -22,23 +25,18 @@
 <body class="bg">
     <nav class="navbar navbar-light fixed-top"
         style="backdrop-filter: blur(8px); background-color: #000000aa; box-shadow: 0 0 10px #000">
-        <a  href="/feniks"><img src="static/FENIKS.png" style="height: 64px" class="ms-2"></a>
+        <a  href=".."><img src="/static/FENIKS.png" style="height: 64px" class="ms-2"></a>
         <div class="align-items-end">
-            <a href="kamere"><img src="static/kamera.png" style="height: 64px" class="me-3"></a>
-            <a href="senzori"><img src="static/termometar.png" style="height: 64px" class="me-3"></a>
+            <a href="/admin"><img src="/static/login.png" style="height: 64px" class="me-3"></a>
         </div>
     </nav>
 
     <div class="d-flex justify-content-center align-items-center" style="height: 100vh">
         <div>
-            <img src="static/FENIKS.png" style="max-height:300px" class="img-fluid p-4">
+            <img src="/static/FENIKS.png" style="max-height:300px" class="img-fluid p-4">
             <div class="row m-0">
-                <div class="w-50">
-                    <a href="kamere"><button type="button" class="btn btn-outline-light btn-lg border-2 w-100">KAMERE</button></a>
-                </div>
-                
-                <div class="w-50">
-                    <a href="senzori"><button type="button" class="btn btn-outline-light btn-lg border-2  w-100">SENZORI</button></a>
+                <div class="w-100">
+                    <a href="/prijava"><button type="button" class="btn btn-outline-light btn-lg border-2 w-100">PRIJAVI POŽAR</button></a>
                 </div>
             </div>
 
