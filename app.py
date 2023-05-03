@@ -71,21 +71,7 @@ def arduino():
         #print(f"Senzor 2: {temp2} Celsius")
 
 locale.setlocale(locale.LC_TIME, "bs")
-pozari = [{
-    "lokacija": [43.6518, 17.9631],
-    "vrijeme": time.strftime("%a %d %b %Y, %H:%M"),
-    "opis": "gori gori gori"
-},
-{
-    "lokacija": [43.6528, 17.9691],
-    "vrijeme": time.strftime("%a %d %b %Y, %H:%M"),
-    "opis": "gori gori gori"
-},
-{
-    "lokacija": [43.6528, 17.9651],
-    "vrijeme": time.strftime("%a %d %b %Y, %H:%M"),
-    "opis": "gori gori gori"
-}]
+pozari = []
 
 #threading.Thread(target=detekcija, daemon=True).start() # Započni thread za detekciju
 threading.Thread(target=arduino, daemon=True).start()   # Započni thread za arduino
@@ -113,7 +99,7 @@ def serve_html(path):
 def pozar():
     if(request.method == "POST"): 
         pozari.append({
-            "lokacija": request.form.get("lokacija"),
+            "lokacija": request.form.getlist("lokacija[]"),
             "vrijeme": time.strftime("%a %d %b %Y, %H:%M"),
             "tip": request.form.get("tip"),
             "opis": request.form.get("opis")
