@@ -4,8 +4,9 @@ import threading
 import time
 import pyfirmata
 import serial.tools.list_ports
+import locale
 from pyfirmata.util import Iterator
-from flask import Flask, render_template, make_response
+from flask import Flask, render_template, make_response, request
 
 # U SLUČAJU DA SE POGREŠNA KAMERA PRIKAZUJE, ILI NEMA SLIKE, PROMIJENITE BROJ KAMERE!
 
@@ -21,6 +22,7 @@ def detekcija():
 
     while(cam.isOpened()):
         ret, frame = cam.read()                                 # Slika s kamere
+        #frame = cv2.imread("pozar.jpg")
         frame = cv2.resize(frame, (640, 480))                   # Promijeni veličinu slike
         results = model(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)) # Procesuiraj sliku kroz model
         results.render()                                        # Nacrtaj rezultate na sliku
@@ -68,7 +70,24 @@ def arduino():
         #print(f"Senzor 1: {temp1} Celsius")
         #print(f"Senzor 2: {temp2} Celsius")
 
-threading.Thread(target=detekcija, daemon=True).start() # Započni thread za detekciju
+locale.setlocale(locale.LC_TIME, "bs")
+pozari = [{
+    "lokacija": [43.6518, 17.9631],
+    "vrijeme": time.strftime("%a %d %b %Y, %H:%M"),
+    "opis": "gori gori gori"
+},
+{
+    "lokacija": [43.6528, 17.9691],
+    "vrijeme": time.strftime("%a %d %b %Y, %H:%M"),
+    "opis": "gori gori gori"
+},
+{
+    "lokacija": [43.6528, 17.9651],
+    "vrijeme": time.strftime("%a %d %b %Y, %H:%M"),
+    "opis": "gori gori gori"
+}]
+
+#threading.Thread(target=detekcija, daemon=True).start() # Započni thread za detekciju
 threading.Thread(target=arduino, daemon=True).start()   # Započni thread za arduino
 
 app = Flask(__name__)
@@ -86,13 +105,22 @@ def temp():
     except NameError: # U slučaju da thread za Arduino nije započet i "temp1" i "temp2" nisu definisani
         return ""
 
-@app.route("/kamere")
-def kamere():
-    return render_template('kamere.html')
+@app.route('/<path:path>')
+def serve_html(path):
+    return render_template(path + '.html')
 
-@app.route("/senzori")
-def senzori():
-    return render_template('senzori.html')
+@app.route("/pozar", methods=['GET', 'POST'])
+def pozar():
+    if(request.method == "POST"): 
+        pozari.append({
+            "lokacija": request.form.get("lokacija"),
+            "vrijeme": time.strftime("%a %d %b %Y, %H:%M"),
+            "tip": request.form.get("tip"),
+            "opis": request.form.get("opis")
+        })
+        return "OK", 200
+    if(request.method == "GET"):
+        return pozari
 
 # Slika
 @app.route("/image")
