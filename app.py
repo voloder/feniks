@@ -10,14 +10,17 @@ from flask import Flask, render_template, make_response, request
 
 # U SLUČAJU DA SE POGREŠNA KAMERA PRIKAZUJE, ILI NEMA SLIKE, PROMIJENITE BROJ KAMERE!
 
-KAMERA = 1  # Broj kamere
+KAMERA = 0  # Broj kamere
 
 # THREAD ZA DETEKCIJU
 def detekcija():
     global img
 
     torch.no_grad()
+    print("Učitavanje modela...")
     model = torch.hub.load('ultralytics/yolov5', 'custom', 'best.pt') # YOLOv5 model + custom dataset
+    
+    print("Učitavanje kamere...")
     cam = cv2.VideoCapture(KAMERA, cv2.CAP_DSHOW)
 
     while(cam.isOpened()):
@@ -37,6 +40,10 @@ def arduino():
         if "Arduino" in p.description:
             port = p.device  # Automatsko pronalaženje porta na kojem je Arduino
     print(port)
+
+    if port == "":
+        print("Arduino nije pronađen, neće raditi detekcija temperature")
+        return
 
     board = pyfirmata.Arduino(port)
     iterator = Iterator(board)
@@ -73,7 +80,7 @@ def arduino():
 locale.setlocale(locale.LC_TIME, "bs")
 pozari = []
 
-#threading.Thread(target=detekcija, daemon=True).start() # Započni thread za detekciju
+threading.Thread(target=detekcija, daemon=True).start() # Započni thread za detekciju
 threading.Thread(target=arduino, daemon=True).start()   # Započni thread za arduino
 
 app = Flask(__name__)
